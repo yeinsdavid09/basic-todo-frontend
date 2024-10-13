@@ -1,0 +1,8 @@
+/* External Imports */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+
+/* Base */
+@import url('./app/styles/global/reset.css');
+@import url('./app/styles/global/variables.css');
+@import url('./app/styles/global/texts.css');

@@ -1,0 +1,18 @@
+:root {
+	--primary-color: #2e91c3;
+	--secondary-color: #efda4c;
+	--tertiary-color: #e7905d;
+	--success-color: #8eb443;
+	--error-color: #d65235;
+	--light-color: #f5fcff;
+	--dark-color: #011621;
+
+	--base-font-size: 16px;
+	--primary-font-family: "Roboto", sans-serif;
+
+	--primary-box-shadow: 0px 5px 15px rgba(46, 145, 195, 0.5);
+
+	--primary-transition-all: all 150ms ease-in-out;
+	--primary-transition-transform: transform 150ms ease-in-out;
+	--primary-transition-opacity: opacity 150ms ease-in-out;
+}
