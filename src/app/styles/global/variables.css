@@ -11,6 +11,7 @@
 	--primary-font-family: "Roboto", sans-serif;
 
 	--primary-box-shadow: 0px 5px 15px rgba(46, 145, 195, 0.5);
+	--secondary-box-shadow: 0px 5px 15px rgba(239, 218, 76, 0.5);
 
 	--primary-transition-all: all 150ms ease-in-out;
 	--primary-transition-transform: transform 150ms ease-in-out;

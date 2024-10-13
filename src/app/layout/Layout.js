@@ -8,6 +8,7 @@ import { Search } from "../components/Search/Search";
 import { List } from "../components/List/List";
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
+import { Button } from "../components/Button/Button";
 
 export function Layout() {
   return (
@@ -28,6 +29,9 @@ export function Layout() {
             <Item></Item>
             <Item></Item>
           </List>
+        </div>
+        <div className="LAYOUT__buttons">
+          <Button></Button>
         </div>
       </main>
       <footer className="LAYOUT__footer">

@@ -19,6 +19,13 @@
 		min-height: calc(100vh - 13rem);
 		margin-top: 8rem;
 		margin-inline: auto;
+
+		.LAYOUT__buttons {
+			position: fixed;
+			z-index: 3;
+			bottom: 1rem;
+			right: 1rem;
+		}
 	}
 	.LAYOUT__footer {
 		display: flex;
