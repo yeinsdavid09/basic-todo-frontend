@@ -5,16 +5,53 @@
 	padding: 1rem;
 	border-radius: 0.5rem;
 	box-shadow: var(--primary-box-shadow);
+	border: 1px solid var(--primary-color);
+	transition: var(--primary-transition-transform);
+	&:hover{
+		transform:scale(1.01)
+	}
+	&.--completed {
+		border: none;
+		.ITEM__texts--wrapper {
+			.ITEM__text {
+				text-decoration: line-through;
+			}
+		}
+	}
 
-	.ITEM__check{
-		width: 1rem;
-		height: 1rem;
+	.ITEM__button {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 1.5rem;
+		height: 1.5rem;
+		border-radius: 0.25rem;
+		cursor: pointer;
+		transition: var(--primary-transition-transform);
+
+		&.--index{
+			background-color: var(--light-color);
+		}
+		&.--check{
+			background-color: var(--success-color);
+		}
+		&.--remove{
+			background-color: var(--error-color);
+		}
+		&:hover{
+			transform: rotate(15deg);
+		}
 	}
-	.ITEM__text{
+
+	.ITEM__texts--wrapper{
 		width: calc(100% - 4rem);
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
 	}
-	.ITEM__remove{
-		width: 1rem;
-		height: 1rem;
+	.ITEM__buttons--wrapper{
+		display: flex;
+		align-items: center;
+		gap: 1rem;
 	}
 }
