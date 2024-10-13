@@ -1,0 +1,20 @@
+.ITEM__container {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1rem;
+	border-radius: 0.5rem;
+	box-shadow: var(--primary-box-shadow);
+
+	.ITEM__check{
+		width: 1rem;
+		height: 1rem;
+	}
+	.ITEM__text{
+		width: calc(100% - 4rem);
+	}
+	.ITEM__remove{
+		width: 1rem;
+		height: 1rem;
+	}
+}
