@@ -1,0 +1,23 @@
+.SEARCH__main-container {
+	width: 100%;
+	border: none;
+	.SEARCH__label{
+		display: block;
+		width: 100%;
+		margin-bottom: 0.5rem;
+	}
+	.SEARCH__input {
+		display: block;
+		width: 100%;
+		padding-block: 0.75rem;
+		padding-inline: 1.5rem;
+		border-radius: 0.5rem;
+		border: 2px solid var(--primary-color);
+		background-color: transparent;
+		outline: none;
+		transition: var(--primary-transition-all);
+		&:focus {
+			border-color: var(--secondary-color);
+		}
+	}
+}
