@@ -11,7 +11,8 @@
 		transform:scale(1.01)
 	}
 	&.--completed {
-		border: none;
+		border: 1px solid var(--success-color);
+		box-shadow: var(--success-box-shadow);
 		.ITEM__texts--wrapper {
 			.ITEM__text {
 				text-decoration: line-through;

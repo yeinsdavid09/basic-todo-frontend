@@ -1,5 +1,6 @@
 //* Base
 import "./Layout.css";
+import { useState } from "react";
 
 //* Components
 import { Item } from "../components/Item/Item";
@@ -14,11 +15,39 @@ const defaultTasks = [
   { id: 1, description: "Task 1", completed: true },
   { id: 2, description: "Task 2", completed: false },
   { id: 3, description: "Task 3", completed: false },
-  { id: 4, description: "Task 4", completed: true },
-  { id: 5, description: "Task 5", completed: false },
 ];
 
 export function Layout() {
+  //#region --------------------------------- Variables ---------------------------------
+
+  const [searchValue, setSearchValue] = useState("");
+  const [tasks, setTasks] = useState(defaultTasks);
+  const completedTasks = tasks.filter((task) => task.completed).length;
+  const totalTasks = tasks.length;
+  const searchedTaks = tasks.filter((task) =>
+    task.description.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
+  //#endregion
+
+  //#region --------------------------------- Methods ---------------------------------
+
+  function checkTasks(taskIndex) {
+    const tasksCopy = [...tasks];
+    tasksCopy[taskIndex].completed = !tasksCopy[taskIndex].completed;
+    setTasks(tasksCopy);
+  }
+
+  function deleteTasks(taskIndex) {
+    const tasksCopy = [...tasks];
+    tasksCopy.splice(taskIndex, 1);
+    setTasks(tasksCopy);
+  }
+
+  //#endregion
+
+  //#region --------------------------------- Html ---------------------------------
+
   return (
     <div className="LAYOUT__main-container">
       <header className="LAYOUT__header">
@@ -26,20 +55,25 @@ export function Layout() {
       </header>
       <main className="LAYOUT__main">
         <div className="LAYOUT__counter">
-          <Counter></Counter>
+          <Counter completed={completedTasks} total={totalTasks}></Counter>
         </div>
         <div className="LAYOUT__search">
-          <Search></Search>
+          <Search
+            searchValue={searchValue}
+            setSearchValue={setSearchValue}
+          ></Search>
         </div>
         <div className="LAYOUT__list">
           <List>
-            {defaultTasks.map((task, index) => {
+            {searchedTaks.map((task, index) => {
               return (
                 <Item
                   key={task.id}
-                  index={index + 1}
+                  taskIndex={index}
                   description={task.description}
                   completed={task.completed}
+                  onComplete={() => checkTasks(index)}
+                  onDelete={() => deleteTasks(index)}
                 ></Item>
               );
             })}
@@ -54,4 +88,6 @@ export function Layout() {
       </footer>
     </div>
   );
+
+  //#endregion
 }

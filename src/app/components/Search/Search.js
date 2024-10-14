@@ -1,7 +1,9 @@
 //* Base
 import "./Search.css";
 
-export function Search() {
+export function Search({ searchValue, setSearchValue }) {
+  //#region --------------------------------- Html ---------------------------------
+
   return (
     <fieldset className="SEARCH__main-container">
       <label className="SEARCH__label GLOBAL__text-body--1" htmlFor="search">
@@ -12,7 +14,11 @@ export function Search() {
         id="search"
         type="text"
         placeholder="Escribe la tarea que deseas encontrar..."
+        value={searchValue}
+        onChange={(event) => setSearchValue(event.target.value)}
       ></input>
     </fieldset>
   );
+
+  //#endregion
 }
