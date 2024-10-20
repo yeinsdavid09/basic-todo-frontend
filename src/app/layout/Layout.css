@@ -21,6 +21,14 @@
 		margin-bottom: 3rem;
 		margin-inline: auto;
 
+		.LAYOUT__list {
+			.LAYOUT__loading, .LAYOUT__error{
+				margin-top: 4rem;
+				text-align: center;
+				color: var(--secondary-color);
+			}
+		}
+
 		.LAYOUT__buttons {
 			position: fixed;
 			z-index: 3;

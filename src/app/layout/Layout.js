@@ -20,7 +20,12 @@ const defaultTasks = [
 export function Layout() {
   //#region --------------------------------- Variables ---------------------------------
 
-  const [tasks, setTasks] = useLocalStorage(LS_KEYS.TASKS, defaultTasks);
+  const {
+    item: tasks,
+    saveItem: setTasks,
+    loading,
+    error,
+  } = useLocalStorage(LS_KEYS.TASKS, defaultTasks);
   const [searchValue, setSearchValue] = useState("");
   const completedTasks = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
@@ -57,6 +62,8 @@ export function Layout() {
       searchedTasks={searchedTasks}
       checkTasks={checkTasks}
       deleteTasks={deleteTasks}
+      loading={loading}
+      error={error}
     ></LayoutUi>
   );
 
