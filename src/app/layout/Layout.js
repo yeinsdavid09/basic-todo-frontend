@@ -2,20 +2,12 @@
 import "./Layout.css";
 import { useState } from "react";
 
-//* Components
-import {
-  Item,
-  Counter,
-  Search,
-  List,
-  Header,
-  Footer,
-  Button,
-} from "../components";
-
 //* Hooks
 import { useLocalStorage } from "../hooks/useLocalStorage";
 import { LS_KEYS } from "../utils/constants";
+
+//* Components
+import { LayoutUi } from "./Layout.ui";
 
 const defaultTasks = [
   { id: 1, description: "Task 1", completed: true },
@@ -57,44 +49,15 @@ export function Layout() {
   //#region --------------------------------- Html ---------------------------------
 
   return (
-    <div className="LAYOUT__main-container">
-      <header className="LAYOUT__header">
-        <Header></Header>
-      </header>
-      <main className="LAYOUT__main">
-        <div className="LAYOUT__counter">
-          <Counter completed={completedTasks} total={totalTasks}></Counter>
-        </div>
-        <div className="LAYOUT__search">
-          <Search
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}
-          ></Search>
-        </div>
-        <div className="LAYOUT__list">
-          <List>
-            {searchedTasks.map((task, index) => {
-              return (
-                <Item
-                  key={task.id}
-                  taskIndex={index}
-                  description={task.description}
-                  completed={task.completed}
-                  onComplete={() => checkTasks(index)}
-                  onDelete={() => deleteTasks(index)}
-                ></Item>
-              );
-            })}
-          </List>
-        </div>
-        <div className="LAYOUT__buttons">
-          <Button></Button>
-        </div>
-      </main>
-      <footer className="LAYOUT__footer">
-        <Footer></Footer>
-      </footer>
-    </div>
+    <LayoutUi
+      completedTasks={completedTasks}
+      totalTasks={totalTasks}
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      searchedTasks={searchedTasks}
+      checkTasks={checkTasks}
+      deleteTasks={deleteTasks}
+    ></LayoutUi>
   );
 
   //#endregion
