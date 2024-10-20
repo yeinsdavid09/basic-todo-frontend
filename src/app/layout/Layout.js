@@ -3,28 +3,36 @@ import "./Layout.css";
 import { useState } from "react";
 
 //* Components
-import { Item } from "../components/Item/Item";
-import { Counter } from "../components/Counter/Counter";
-import { Search } from "../components/Search/Search";
-import { List } from "../components/List/List";
-import { Header } from "../components/Header/Header";
-import { Footer } from "../components/Footer/Footer";
-import { Button } from "../components/Button/Button";
+import {
+  Item,
+  Counter,
+  Search,
+  List,
+  Header,
+  Footer,
+  Button,
+} from "../components";
+
+//* Hooks
+import { useLocalStorage } from "../hooks/useLocalStorage";
+import { LS_KEYS } from "../utils/constants";
 
 const defaultTasks = [
   { id: 1, description: "Task 1", completed: true },
   { id: 2, description: "Task 2", completed: false },
   { id: 3, description: "Task 3", completed: false },
+  { id: 4, description: "Task 4", completed: false },
+  { id: 5, description: "Task 5", completed: false },
 ];
 
 export function Layout() {
   //#region --------------------------------- Variables ---------------------------------
 
+  const [tasks, setTasks] = useLocalStorage(LS_KEYS.TASKS, defaultTasks);
   const [searchValue, setSearchValue] = useState("");
-  const [tasks, setTasks] = useState(defaultTasks);
   const completedTasks = tasks.filter((task) => task.completed).length;
   const totalTasks = tasks.length;
-  const searchedTaks = tasks.filter((task) =>
+  const searchedTasks = tasks.filter((task) =>
     task.description.toLowerCase().includes(searchValue.toLowerCase())
   );
 
@@ -65,7 +73,7 @@ export function Layout() {
         </div>
         <div className="LAYOUT__list">
           <List>
-            {searchedTaks.map((task, index) => {
+            {searchedTasks.map((task, index) => {
               return (
                 <Item
                   key={task.id}
